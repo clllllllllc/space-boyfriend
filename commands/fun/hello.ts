@@ -1,5 +1,6 @@
 import { Message, MessageAttachment } from 'discord.js'
-import messages from './messages.json'
+import * as messages from 'D:\\Programming\\js\\space-boyfriend\\commands\\fun\\messages.json'
+
 
 export default {
     callback: (message: Message, ...args: string[]) => {

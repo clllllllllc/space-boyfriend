@@ -1,6 +1,5 @@
 {
-    "hello": [
-        {
+    "hello": [{
             "content": "fuck of",
             "file": 0
         },
@@ -57,7 +56,7 @@
             "file": 0
         },
         {
-            "content": "Grok learning moee like  cock learning",
+            "content": "Grok learning moee like cock learning",
             "file": 0
         },
         {
