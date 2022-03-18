@@ -1,41 +1,43 @@
-import DiscordJS, { Intents, MessageAttachment } from 'discord.js'
-import mango from "./mango"
-import 'dotenv/config'
-import testSchema from './schemas/test-schema'
+import DiscordJS, { Intents, MessageAttachment } from 'discord.js';
+//import mango from "./mango";
+import 'dotenv/config';
+//import testSchema from './schemas/test-schema';
+//import userSchema from './schemas/user-schema';
+import eventHandler from './handlers/events';
 
 // create bot client
 const client = new DiscordJS.Client({
-    intents:[
-        Intents.FLAGS.GUILDS,
-        Intents.FLAGS.GUILD_MESSAGES
-    ],
-})
+    intents: 32767,
+});
 
-// bot ready 
-client.on('ready', async () => {
-    console.log("BOT READY")
+const event = eventHandler(client);
 
-    let handler = require('./command-handler')
-    if (handler.default) handler = handler.default
+// // bot ready 
+// client.on('ready', async () => {
+//     console.log("BOT READY")
+
+//     let handler = require('./command-handler')
+//     if (handler.default) handler = handler.default
     
-    handler(client)
+//     handler(client)
 
-    const connectToMangoDB = async () => {
-        await mango().then((mongoose) => {
-            try {
-                console.log("Connected")
-            } finally {
-                console.log("lol")
-            }
-        }
-        )
-    }
+//     const connectToMangoDB = async () => {
+//         await mango().then(async (mangoes) => {
+//             try {
+//                 console.log("Connected")
+//                 console.log(typeof(userSchema))
+//             } finally {
+//                 console.log("lol")
+//             }
+//         }
+//         )
+//     }
 
-    connectToMangoDB()
+//     connectToMangoDB()
 
-    await new testSchema({
-        message: "hello"
-    }).save()
-})
+//     await new testSchema({
+//         message: "hello"
+//     }).save()
+// })
 
-client.login(process.env.TOKEN)
+client.login(process.env.TOKEN);

@@ -1,8 +1,8 @@
- import mongoose from 'mongoose'
-import 'dotenv/config'
+ import mangoes from 'mongoose';
+import 'dotenv/config';
 
 export default async () => {
-    await mongoose.connect(process.env.MANGO || '', {
+    await mangoes.connect(process.env.MANGO || '', {
         keepAlive: true
-    })
+    });
 }

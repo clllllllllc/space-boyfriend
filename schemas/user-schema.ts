@@ -1,12 +1,13 @@
-import mongoose from 'mongoose'
+import mangoes from 'mongoose';
 
-const userSchema = new mongoose.Schema({
+const userSchema = new mangoes.Schema({
+    id: String,
     nickname: String,
-    cockSize: String,
-    virginity: Boolean,
-    cum: Number,
-    items: Array,
-    storedSettings: Array,
-    storedSettings2: Array,
+    currency: Number,
+    items: Object,
+    properties: Object,
+    storedSettings: Object,
 
 })
+
+export default mangoes.model('user', userSchema);

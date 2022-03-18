@@ -1,10 +1,10 @@
-import mongoose from 'mongoose'
+import mangoes from 'mongoose';
 
-const schema = new mongoose.Schema({
+const schema = new mangoes.Schema({
     message: {
         type: String,
         required: true
     }
 })
 
-export default mongoose.model('testing', schema)
+export default mangoes.model('testing', schema);
