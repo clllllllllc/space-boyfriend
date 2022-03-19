@@ -7,4 +7,6 @@ const testItem1 = {
         return "ahhhhhhhhh"
     }
 
-}
+};
+
+export default testItem1;
