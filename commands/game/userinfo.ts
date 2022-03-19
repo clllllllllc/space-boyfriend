@@ -6,6 +6,7 @@ import userSchema from '../../schemas/user-schema'
 export default {
     name: "userinfo",
     type: "USER",
+    context: true,
     permission: "ADMINISTRATOR",
 
     async execute(interaction: ContextMenuInteraction) {

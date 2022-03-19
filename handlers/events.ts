@@ -1,4 +1,4 @@
-import events from '../validation/eventNames';
+import events from '../structures/validation/eventNames';
 import glob from 'glob';
 import { promisify } from 'util';
 

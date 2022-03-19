@@ -1,4 +1,4 @@
-import perms from "../validation/permissions";
+import perms from "../structures/validation/permissions";
 import Client from "discord.js";
 import glob from 'glob';
 const ascii = require('ascii-table');
@@ -20,7 +20,7 @@ export default async (client: any) => {
         console.log(command)
         if(!command.name) return table.addRow(file.split("/")[7], "MISSING NAME");
 
-        if(command.type !== "USER" && !command.description) return table.addRow(command.name, "MISSING DESCRIPTION");
+        if(!command.context && !command.description) return table.addRow(command.name, "MISSING DESCRIPTION");
 
         if(command.permissions) {
             if(perms.includes(command.permission)) command.defaultPermissions = false;

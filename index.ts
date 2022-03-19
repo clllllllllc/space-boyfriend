@@ -6,9 +6,15 @@ import 'dotenv/config';
 import eventHandler from './handlers/events';
 import commandHandler from './handlers/commands';
 
+import DisTube from "distube";
+import SpotifyPlugin from '@distube/spotify';
 
 class GoodClient extends Client {
     public commands: Collection<any, any>;
+
+    public distube: any;
+
+    public emotes: any;
 
      constructor(intents: any){
           super(intents);
@@ -20,6 +26,15 @@ class GoodClient extends Client {
 const client = new GoodClient({
     intents: 32767,
 });
+
+client.distube = new DisTube(client, {
+    emitNewSongOnly: true,
+    nsfw: true,
+    emitAddSongWhenCreatingQueue: false,
+    plugins: [new SpotifyPlugin]
+});
+
+export default client;
 
 
 const event = eventHandler(client);
