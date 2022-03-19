@@ -32,6 +32,7 @@
         "libsodium-wrappers": "^0.7.9",
         "mongoose": "^6.2.7",
         "nodemon": "^2.0.15",
+        "opusscript": "^0.0.8",
         "util": "^0.12.4",
         "yt-search": "^2.10.3",
         "ytdl-core": "^4.11.0"

@@ -1,4 +1,4 @@
-import client from "../../index"
+import client from "../index"
 import { MessageEmbed } from 'discord.js'
 
 const status = (queue: any) =>
