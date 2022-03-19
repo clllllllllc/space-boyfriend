@@ -1,16 +1,29 @@
-import DiscordJS, { Intents, MessageAttachment } from 'discord.js';
+import { Client, Collection} from 'discord.js';
 //import mango from "./mango";
 import 'dotenv/config';
 //import testSchema from './schemas/test-schema';
 //import userSchema from './schemas/user-schema';
 import eventHandler from './handlers/events';
+import commandHandler from './handlers/commands';
+
+
+class GoodClient extends Client {
+    public commands: Collection<any, any>;
+
+     constructor(intents: any){
+          super(intents);
+          this.commands = new Collection();
+     }
+}
 
 // create bot client
-const client = new DiscordJS.Client({
+const client = new GoodClient({
     intents: 32767,
 });
 
+
 const event = eventHandler(client);
+const commands = commandHandler(client);
 
 // // bot ready 
 // client.on('ready', async () => {

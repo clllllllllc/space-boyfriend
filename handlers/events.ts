@@ -1,8 +1,8 @@
 import events from '../validation/eventNames';
 import glob from 'glob';
-const ascii = require('ascii-table');
 import { promisify } from 'util';
 
+const ascii = require('ascii-table');
 // weird promisify thing that does not work, or I might just be stupid
 // type Callback<A> = (args: A) => void
 
@@ -16,9 +16,8 @@ import { promisify } from 'util';
 const PG = promisify(glob);
 const eventHandler = async (client: any) => {
     const table = new ascii("Events Loaded");
-    (await PG (`${process.cwd()}/Events/*/*.ts`)).map(async (file: any) => {
+    (await PG (`${process.cwd()}/events/*/*.ts`)).map(async (file: any) => {
         const event = require(file)['default'];
-        
         if(!events.includes(event.name) || !event.name) {
             const l = file.split("/");
             console.log(l)

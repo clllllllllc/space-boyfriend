@@ -1,5 +1,4 @@
-const permissions = {
-    Perms: [
+const permissions = [
         "CREATE_INSTANT_INVITE",
         "KICK_MEMBERS", 
         "BAN_MEMBERS",
@@ -38,6 +37,4 @@ const permissions = {
         "USE_PRIVATE_THREADS",
         "USE_EXTERNAL_STICKERS"
     ]   
-}
-
 export default permissions

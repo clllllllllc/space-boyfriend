@@ -9,9 +9,10 @@ export default {
     async execute(client: any){
         console.log("BOT READY");
 
-        let handler = require('../../command-handler');
-        if (handler.default) handler = handler.default;
-        handler(client);
+        //old command handler
+        // let handler = require('../../command-handler');
+        // if (handler.default) handler = handler.default;
+        // handler(client);
     
         //client.user.SetActivity("AHHHHHHHHHHHHHH BOT IS ON");
         const connectToMangoDB = async () => {
