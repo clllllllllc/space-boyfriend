@@ -21,7 +21,6 @@ export default {
 
         const value = options.getInteger("number")!
         const item = whatWillJingYangSend(value)
-        console.log(item)
         if (item["file"] != 0) {
             const file = new MessageAttachment(item["file"] as any)
             interaction.reply({

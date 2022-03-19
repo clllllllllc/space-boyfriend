@@ -8,12 +8,15 @@ export default {
      * @param interaction 
      * @param client 
      */
-    async execute(interaction: CommandInteraction, client: any, agrs: Array<any>) {
-        if(interaction.isCommand()) {
+    async execute(interaction: CommandInteraction, client: any) {
+        if(interaction.isContextMenu() || interaction.isCommand()) {
             console.log(interaction.commandName)
             const command = client.commands.get(interaction.commandName);
-            command.execute(interaction, client);
-            if(!command) {
+            console.log("command:", command)
+
+            try{
+                command.execute(interaction, client);
+            } catch {
                 client.commands.delete(interaction.commandName)
                 return interaction.reply({embeds: [
                 new MessageEmbed()

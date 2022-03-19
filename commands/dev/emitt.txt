@@ -1,0 +1,41 @@
+import DiscordJS, { CommandInteraction, Client } from 'discord.js' 
+const emmiter =  {
+    name: "em",
+    description: "Event emitter",
+    permission: "NOPE NOT WORKING",
+    options: [
+        {
+            name: "member",
+            description: "Member event",
+            type: "STRING",
+            required: true,
+            choices: [
+                {
+                    name: "guildMemberAdd",
+                    vaule: "guildMemberAdd"
+                },
+                {
+                    name: "guildMemberRemove",
+                    vaule: "guildMemberRemove"
+                },
+            ]
+        }
+    ],
+    async execute(interaction: CommandInteraction, client: Client) {
+        const choices = interaction.options.getString("member");
+
+        switch(choices) {
+            case "guildMemberAdd": {
+                client.emit("guildMemberAdd" as any, interaction.member);   
+                interaction.reply({content: "Yeah done :)"})
+            }
+            break;
+
+            case "guildMemberRemove": {
+                client.emit("guildMemberRemove" as any, interaction.member);
+                interaction.reply({content: "Yeah done :("})
+            }
+            break;
+        }
+    }
+}

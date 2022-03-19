@@ -17,10 +17,10 @@ export default async (client: any) => {
 
     (await PG(`${process.cwd()}/commands/*/*.ts`)).map(async (file) => {
         const command = require(file)["default"];
-
+        console.log(command)
         if(!command.name) return table.addRow(file.split("/")[7], "MISSING NAME");
 
-        if(!command.description) return table.addRow(command.name, "MISSING DESCRIPTION");
+        if(command.type !== "USER" && !command.description) return table.addRow(command.name, "MISSING DESCRIPTION");
 
         if(command.permissions) {
             if(perms.includes(command.permission)) command.defaultPermissions = false;
